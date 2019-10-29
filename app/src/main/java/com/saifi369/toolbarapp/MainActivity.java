@@ -1,10 +1,10 @@
 package com.saifi369.toolbarapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.Menu;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,11 +13,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button=findViewById(R.id.btn_click_me);
-        button.setOnClickListener(view -> {
-            Intent intent=new Intent(MainActivity.this,SecondActivity.class);
-            startActivity(intent);
-        });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
 }
